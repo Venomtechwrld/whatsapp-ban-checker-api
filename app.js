@@ -1,4 +1,4 @@
-const PROXY = 'https://venompx.manus.space/api/status';
+const PROXY = 'https://venompx-gjgfathg.manus.space/api/status';
 const form = document.querySelector('#check-form');
 const input = document.querySelector('#phone');
 const button = document.querySelector('#submit');
@@ -7,6 +7,7 @@ const section = document.querySelector('#result-section');
 const tree = document.querySelector('#tree');
 const raw = document.querySelector('#raw-json');
 const statusLine = document.querySelector('#http-status');
+
 
 function addValue(parent, key, value) {
   if (value && typeof value === 'object') {
@@ -21,6 +22,7 @@ function addValue(parent, key, value) {
   const v = document.createElement('span'); v.className = 'field-value'; v.textContent = value === null ? 'null' : String(value);
   row.append(k, v); parent.append(row);
 }
+
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -45,7 +47,9 @@ form.addEventListener('submit', async (event) => {
   }
 });
 
+
 document.querySelector('#copy').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(raw.textContent); notice.textContent = 'Response JSON copied.'; }
   catch { notice.textContent = 'Clipboard unavailable. Select and copy the raw JSON below.'; }
 });
+
